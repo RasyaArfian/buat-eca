@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Buat Eca 💗</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg-hearts" id="bgHearts"></div>
+
+  <header class="header">
+    <h1>Halo Eca Sayang 💘</h1>
+    <p class="subtitle">yuk kasih jawabannya di sini ya 🙏</p>
+  </header>
+
+  <main class="app">
+
+    <!-- MOOD METER -->
+    <section class="card mood-card">
+      <h2>🌡️ Mood Kamu Sekarang</h2>
+      <p class="meter-label" id="meterLabel">Lagi Marah Besar 😡</p>
+      <div class="meter-track">
+        <div class="meter-fill" id="meterFill"></div>
+      </div>
+      <p class="meter-percent"><span id="meterValue">100</span>% marah</p>
+      <p class="hint">Tiap kamu buka pesan atau main di bawah ini, semoga marahmu pelan-pelan mereda ya 👇</p>
+    </section>
+
+    <!-- MINI GAME: SUSUN KATA -->
+    <section class="card">
+      <h2>🔤 Susun Kata Cinta</h2>
+      <p class="hint">Susun huruf acak di bawah jadi kata yang benar. Tiap kata berhasil disusun, amarah turun dikit 💗</p>
+      <div class="game-stats">
+        <span>Benar: <b id="wordScore">0</b></span>
+        <span>Kata ke: <b id="wordRound">1</b>/<b id="wordTotal">6</b></span>
+      </div>
+      <div class="word-answer" id="wordAnswer"></div>
+      <div class="word-letters" id="wordLetters"></div>
+      <div class="word-actions">
+        <button class="secondary-btn" id="wordResetBtn">↩️ Ulang Huruf</button>
+        <button class="primary-btn" id="wordCheckBtn">✅ Cek Jawaban</button>
+      </div>
+      <p class="msg-box" id="wordMsg">Ayo susun kata di atas ya!</p>
+    </section>
+
+    <!-- CAMPUS SCHEDULE CHECKLIST: PICKUP/DROPOFF COMMITMENT -->
+    <section class="card">
+      <h2>📅 Jadwal ke Kampus Minggu Depan</h2>
+      <p class="hint">Eca, tanggal 17-22 Agustus ada jadwal ke kampus hari apa aja? Centang tanggalnya ya, nanti otomatis jadi jadwal aku buat anter-jemput kamu.</p>
+      <div class="checklist" id="campusChecklist">
+        <label class="check-item"><input type="checkbox" data-day="Senin, 17 Agustus 2026"> 📖 Senin, 17 Agustus 2026</label>
+        <label class="check-item"><input type="checkbox" data-day="Selasa, 18 Agustus 2026"> 📖 Selasa, 18 Agustus 2026</label>
+        <label class="check-item"><input type="checkbox" data-day="Rabu, 19 Agustus 2026"> 📖 Rabu, 19 Agustus 2026</label>
+        <label class="check-item"><input type="checkbox" data-day="Kamis, 20 Agustus 2026"> 📖 Kamis, 20 Agustus 2026</label>
+        <label class="check-item"><input type="checkbox" data-day="Jumat, 21 Agustus 2026"> 📖 Jumat, 21 Agustus 2026</label>
+        <label class="check-item"><input type="checkbox" data-day="Sabtu, 22 Agustus 2026"> 📖 Sabtu, 22 Agustus 2026</label>
+      </div>
+      <label class="check-item check-item-none"><input type="checkbox" id="noCampusCheckbox"> 🚫 Nggak ada jadwal ke kampus sama sekali minggu ini</label>
+      <p class="hint">Hari dipilih: <b id="campusCheckedCount">0</b>/6 — tiap dicentang, aku otomatis anter-jemput kamu hari itu 🚗</p>
+    </section>
+
+    <!-- MINI GAME: POP THE HEARTS -->
+    <section class="card">
+      <h2>🎮 Main Dulu Yuk, Biar Ringan</h2>
+      <p class="hint">Tap hati yang muncul sebelum hilang. Anggap ini hadiah kecil dariku buat kamu 💗</p>
+      <div class="game-stats">
+        <span>Skor: <b id="gameScore">0</b></span>
+        <span>Waktu: <b id="gameTime">15</b>s</span>
+      </div>
+      <div class="game-area" id="gameArea">
+        <p class="game-placeholder" id="gamePlaceholder">Tekan "Mulai Main" ya 👇</p> 
+      </div>
+      <button class="primary-btn" id="startGameBtn">▶️ Mulai Main</button>
+    </section>
+
+    <!-- MINI GAME: MEMORY MATCH -->
+    <section class="card">
+      <h2>🃏 Cari Pasangan Kartu</h2>
+      <p class="hint">Buka 2 kartu tiap giliran, cari pasangan emoji yang sama. Setiap pasangan ketemu = amarah turun 💗</p>
+      <div class="game-stats">
+        <span>Langkah: <b id="memoryMoves">0</b></span>
+        <span>Pasangan: <b id="memoryMatches">0</b>/4</span>
+      </div>
+      <div class="memory-grid" id="memoryGrid"></div>
+      <button class="primary-btn" id="restartMemoryBtn">🔄 Acak Ulang Kartu</button>
+    </section>
+
+    <!-- MINI GAME: RODA KEBERUNTUNGAN -->
+    <section class="card">
+      <h2>🎡 Roda Keberuntungan</h2>
+      <p class="hint">Putar rodanya, lihat kejutan apa yang kamu dapet dariku hari ini 🎁</p>
+      <div class="wheel-wrap">
+        <div class="wheel" id="wheel"></div>
+        <div class="wheel-pointer">🔻</div>
+      </div>
+      <button class="primary-btn" id="spinWheelBtn">🎡 Putar Sekarang</button>
+      <p class="msg-box" id="wheelResult">Hasil putaranmu bakal muncul di sini ya...</p>
+    </section>
+
+    <!-- QUIZ: KENALI ECA -->
+    <section class="card">
+      <h2>🧠 Yuk Cerita Lewat Klik</h2>
+      <p class="hint">Nggak ada jawaban salah, pilih aja yang paling sesuai perasaanmu sekarang 😉</p>
+      <div id="quizContainer"></div>
+      <p class="quiz-result" id="quizResult"></p>
+    </section>
+
+    <!-- SCORE SUMMARY -->
+    <section class="card">
+      <h2>📊 Poin & Progress Kamu</h2>
+      <div class="summary-grid">
+        <div class="summary-item"><span class="summary-num" id="sumMood">100%</span><span class="summary-label">Marah Tersisa</span></div>
+        <div class="summary-item"><span class="summary-num" id="sumHeart">0</span><span class="summary-label">Skor Tangkap Cinta</span></div>
+        <div class="summary-item"><span class="summary-num" id="sumMemory">0/4</span><span class="summary-label">Pasangan Kartu</span></div>
+        <div class="summary-item"><span class="summary-num" id="sumWord">0/6</span><span class="summary-label">Susun Kata Benar</span></div>
+        <div class="summary-item"><span class="summary-num" id="sumCampus">0/6</span><span class="summary-label">Jadwal Anter-Jemput</span></div>
+      </div>
+    </section>
+
+    <!-- SEND STORY TO PARTNER (Eca chooses when/whether to send) -->
+    <section class="card">
+      <h2>📤 Kirim Cerita ke Pacarmu</h2>
+      <p class="hint">Kalau kamu mau, kamu bisa kirim ringkasan mood, poin, & jawabanmu ke pacarmu lewat WhatsApp. Pesannya bakal disiapkan dulu, kamu yang pilih mau kirim atau enggak.</p>
+      <button class="primary-btn" id="sendWaBtn">💬 Siapkan & Kirim Lewat WhatsApp</button>
+      <button class="secondary-btn" id="copySummaryBtn">📋 Salin Pesan (Kalau di WA Berantakan)</button>
+      <p class="hint" id="waHint" hidden>Kamu akan diarahkan ke WhatsApp dengan pesan yang sudah terisi. Kamu tetap yang menekan tombol kirim di sana ya. Kalau tulisannya berantakan/aneh, hapus dulu isi kotak chat-nya, lalu tempel ulang pakai tombol "Salin Pesan" di atas.</p>
+    </section>
+
+    <!-- CELEBRATION (hidden until mood 0) -->
+    <section class="card celebration-card" id="celebrationCard" hidden>
+      <h2>🎉 Makasih Ya Udah Baikan Sama Aku</h2>
+      <p>Aku seneng banget kamu udah lebih tenang sekarang. Makasih udah mau baca semua ini, Ca. Aku sayang kamu 💕</p>
+      <button class="primary-btn" id="restartBtn">🔁 Ulangi dari Awal</button>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Dibuat dengan sepenuh hati, khusus buat Eca 💌</p>
+  </footer>
+
+  <div class="confetti-layer" id="confettiLayer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
